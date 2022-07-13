@@ -4,7 +4,7 @@ const LannisterPay = require('../model/tpss.schema');
 const lanTransaction = (req, res) => {
     try {
         const payload = req.body;
-        payload["ID"] = generateAccountNumber() 
+        payload["ID"] = generatefourDigitsId(); 
 
         let response = {
           "ID": payload["ID"],
@@ -67,10 +67,22 @@ const lanTransaction = (req, res) => {
         console.error(err.message);
         res.status(404).json({message: 'an error just occured.'})
     }
+};
+
+const getAllTransactions = async (req, res) => {
+  try {
+    const transactions = await LannisterPay.find();
+
+    res.status(200).json(transactions);
+  } catch (err) {
+    console.error(err.message);
+    res.status(404).json({ message: "an error just occured." });
+  }
 }
 
-function generateAccountNumber() {
+// Function to generate a random four digits Id.
+function generatefourDigitsId() {
   return Math.floor(1000 + Math.random() * 999);
 }
 
-module.exports = lanTransaction;
+module.exports = {lanTransaction, getAllTransactions};
