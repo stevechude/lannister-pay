@@ -1,7 +1,7 @@
 const express = require('express');
 
-const splitRouter = require('./routes/tpss.route');
-const connectDB = require('./db_config/db');
+const splitRouter = require('./src/routes/tpss.route');
+const connectDB = require('./src/db_config/db');
 
 require("dotenv").config();
 
