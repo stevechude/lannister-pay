@@ -21,3 +21,6 @@ Node.JS, MongoDB database, Express.JS, PostMan for testing API
 1. npm install to install dependencies
 2. npm start to run server
 3. open browser and go to postman to test API http://localhost:3005/api/split-payments/compute
+
+### use the link below to view the hosted app service
+4. https://lannister-pay-service.herokuapp.com/api/split-payments/compute
